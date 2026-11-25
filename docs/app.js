@@ -12,6 +12,8 @@ const readingEl = document.querySelector("#reading");
 const todayEl = document.querySelector("#today");
 const statusEl = document.querySelector("#status");
 const copyBtn = document.querySelector("#copy");
+const printBtn = document.querySelector("#print");
+const themeBtn = document.querySelector("#theme");
 
 let selected = "understand";
 let passages = [];
@@ -118,6 +120,14 @@ function toggleVerse(button, marks) {
   statusEl.hidden = true;
 }
 
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("faith-theme", theme);
+  themeBtn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.content = theme === "dark" ? "#1b1814" : "#f4efe4";
+}
+
 function setColor(color) {
   selected = color;
   for (const tool of document.querySelectorAll(".tool")) {
@@ -204,5 +214,11 @@ copyBtn.addEventListener("click", () => {
     statusEl.textContent = "Copy did not work. Select the verses and copy them yourself.";
   });
 });
+printBtn.addEventListener("click", () => window.print());
+themeBtn.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(next);
+});
+applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
 
 start();

@@ -6,11 +6,26 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#f4efe4">
-  <title>Daily Bible</title>
+  <meta name="apple-mobile-web-app-title" content="Secrete Souce">
+  <title>Secrete Souce</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("faith-theme");
+      var theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = theme === "dark" ? "#1b1814" : "#f4efe4";
+    })();
+  </script>
 </head>
 <body>
-  <header class="key" id="color-key">
+  <header class="top">
+    <div class="title-row">
+      <h1>Secrete Souce</h1>
+      <button type="button" id="theme" class="theme">Dark mode</button>
+    </div>
+    <div class="key" id="color-key">
     <p class="key-title">Highlight key</p>
     <ul class="swatches">
       <li><span class="dot understand"></span> Green = Understand</li>
@@ -22,6 +37,7 @@
       grasp it. Look up means explain it briefly. Deep dive means study it
       in depth. A red mark means the same as pink.
     </p>
+    </div>
   </header>
 
   <main>
@@ -41,6 +57,7 @@
       <span class="dot deep"></span> Deep dive
     </button>
     <button type="button" class="copy" id="copy">Copy for chat</button>
+    <button type="button" class="print" id="print">Print</button>
   </div>
 
   <script src="app.js"></script>
