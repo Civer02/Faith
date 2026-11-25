@@ -118,6 +118,14 @@ h1 {
   letter-spacing: 0.01em;
 }
 
+.key li {
+  list-style: none;
+}
+
+.key li::marker {
+  content: "";
+}
+
 .key li,
 .tool {
   display: inline-flex;

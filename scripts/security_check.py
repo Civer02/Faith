@@ -57,9 +57,11 @@ def check_policy():
     if INLINE_SCRIPT.search(html):
         errors += fail("docs/index.html contains an inline script")
     for name in ("theme-init.js", "guard.js", "app.js"):
-        if f'src="{name}"' not in html:
+        if not re.search(rf'src="{re.escape(name)}(?:\?[^"]*)?"', html):
             errors += fail(f"docs/index.html does not load {name}")
-    if html.find('src="guard.js"') > html.find('src="app.js"'):
+    guard_src = re.search(r'src="guard\.js(?:\?[^"]*)?"', html)
+    app_src = re.search(r'src="app\.js(?:\?[^"]*)?"', html)
+    if not guard_src or not app_src or guard_src.start() > app_src.start():
         errors += fail("guard.js must load before app.js")
     for path in (ROOT / "docs" / "app.js", ROOT / "docs" / "guard.js"):
         text = read(path)
