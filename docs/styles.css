@@ -269,9 +269,46 @@ main {
     --mark-ink: #1d1914;
   }
 
+  /* iPad print has no "background graphics" switch, so highlight fills are
+     dropped unless the page asks for them. Buttons need appearance reset
+     or WebKit still skips their backgrounds. */
+  html,
+  .verse,
+  .dot {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .verse {
+    -webkit-appearance: none;
+    appearance: none;
+    break-inside: avoid;
+  }
+
+  .verse.understand {
+    background-color: var(--understand);
+    background-image: linear-gradient(var(--understand), var(--understand));
+    box-shadow: inset 0 0 0 100vmax var(--understand);
+  }
+
+  .verse.lookup {
+    background-color: var(--lookup);
+    background-image: linear-gradient(var(--lookup), var(--lookup));
+    box-shadow: inset 0 0 0 100vmax var(--lookup);
+  }
+
+  .verse.deep {
+    background-color: var(--deep);
+    background-image: linear-gradient(var(--deep), var(--deep));
+    box-shadow: inset 0 0 0 100vmax var(--deep);
+  }
+
+  .dot.understand { background-image: linear-gradient(var(--understand), var(--understand)); }
+  .dot.lookup { background-image: linear-gradient(var(--lookup), var(--lookup)); }
+  .dot.deep { background-image: linear-gradient(var(--deep), var(--deep)); }
+
   .theme,
   .toolbar { display: none; }
   main { padding-bottom: 0; }
-  .verse { break-inside: avoid; }
   h1, .passage h2, .key { break-after: avoid; }
 }
