@@ -1,0 +1,48 @@
+# Operating system metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Credentials and local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+id_rsa
+id_ed25519
+id_ecdsa
+credentials.json
+secrets.json
+*.token
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.python-version
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor and scratch files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+*.bak
