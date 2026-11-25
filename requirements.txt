@@ -1,0 +1,4 @@
+# Pinned direct dependencies for daily_script.py.
+# fpdf2 provides the maintained "fpdf" import. PyFPDF is not used.
+requests==2.34.2
+fpdf2==2.9.0
