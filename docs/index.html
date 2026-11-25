@@ -19,23 +19,15 @@
       <h1>Secrete Souce</h1>
       <button type="button" id="theme" class="theme">Dark mode</button>
     </div>
-    <div class="key" id="color-key">
-    <p class="key-title">Highlight key</p>
-    <ul class="swatches">
-      <li><span class="dot understand"></span> Green = Understand</li>
-      <li><span class="dot lookup"></span> Yellow = Look up</li>
-      <li><span class="dot deep"></span> Pink = Deep dive</li>
+    <p class="date" id="today"></p>
+    <ul class="key" id="color-key" aria-label="Highlight key">
+      <li><span class="dot understand"></span> Understand</li>
+      <li><span class="dot lookup"></span> Look up</li>
+      <li><span class="dot deep"></span> Deep dive</li>
     </ul>
-    <p class="key-note">
-      Mark a verse, then copy it into a chat. Understand means you already
-      grasp it. Look up means explain it briefly. Deep dive means study it
-      in depth. A red mark means the same as pink.
-    </p>
-    </div>
   </header>
 
   <main>
-    <p class="date" id="today"></p>
     <p class="status" id="status" hidden></p>
     <article id="reading" aria-live="polite"></article>
   </main>
@@ -50,7 +42,6 @@
     <button type="button" class="tool" data-color="deep" aria-pressed="false">
       <span class="dot deep"></span> Deep dive
     </button>
-    <button type="button" class="copy" id="copy">Copy for chat</button>
     <button type="button" class="print" id="print">Print</button>
   </div>
 

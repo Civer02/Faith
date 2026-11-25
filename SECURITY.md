@@ -29,8 +29,6 @@ Faith is a static reading page and a local Python script.
   brackets are removed. Verse text is rendered with `textContent`.
 - Saved highlights and the theme are accepted only when they match an
   expected shape. Unknown keys and colors are ignored.
-- The copy button writes text. It does not read the clipboard. Verse lines are
-  forced onto a single line and labeled as scripture rather than instructions.
 - `daily_script.py` stages `bible_state.json`, `daily_bible_YYYY-MM-DD.pdf`,
   and `old/daily_bible_YYYY-MM-DD.pdf` only. It will not stage a symlink, and
   the commit is limited to those paths. Git command output is redacted before

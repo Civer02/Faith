@@ -83,6 +83,13 @@ h1 {
   line-height: 1.3;
 }
 
+.date {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
 .theme {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -97,30 +104,25 @@ h1 {
 }
 
 .key {
-  padding-top: 1rem;
-}
-
-.key-title {
-  margin: 0 0 0.6rem;
-  font-weight: 700;
-  font-size: 1.05rem;
-}
-
-.swatches {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1rem;
-  margin: 0;
-  padding: 0;
-  font-weight: 700;
+  gap: 0.2rem 0.85rem;
+  margin: 0.55rem 0 0;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
 }
 
-.swatches li,
+.key li,
 .tool {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .dot {
@@ -131,28 +133,20 @@ h1 {
   flex: none;
 }
 
+.key .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.12rem;
+}
+
 .dot.understand { background: var(--understand); }
 .dot.lookup { background: var(--lookup); }
 .dot.deep { background: var(--deep); }
 
-.key-note {
-  margin: 0.8rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--line);
-}
-
 main {
   max-width: 42rem;
   margin: 0 auto;
-  padding: 1.25rem 1.25rem 7.5rem;
-}
-
-.date {
-  margin: 0.2rem 0 1rem;
-  color: var(--muted);
+  padding: 1rem 1.25rem 7.5rem;
 }
 
 .status {
@@ -226,7 +220,6 @@ main {
 }
 
 .tool,
-.copy,
 .print {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -244,7 +237,6 @@ main {
   box-shadow: inset 0 0 0 1px var(--solid);
 }
 
-.copy,
 .print {
   background: var(--solid);
   color: var(--solid-ink);
