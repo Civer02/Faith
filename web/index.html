@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f4efe4">
+  <title>Daily Bible</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="key" id="color-key">
+    <p class="key-title">Highlight key</p>
+    <ul class="swatches">
+      <li><span class="dot understand"></span> Green = Understand</li>
+      <li><span class="dot lookup"></span> Yellow = Look up</li>
+      <li><span class="dot deep"></span> Pink = Deep dive</li>
+    </ul>
+    <p class="key-note">
+      Mark a verse, then copy it into a chat. Understand means you already
+      grasp it. Look up means explain it briefly. Deep dive means study it
+      in depth. A red mark means the same as pink.
+    </p>
+  </header>
+
+  <main>
+    <p class="date" id="today"></p>
+    <p class="status" id="status" hidden></p>
+    <article id="reading" aria-live="polite"></article>
+  </main>
+
+  <div class="toolbar" role="toolbar" aria-label="Highlight colors">
+    <button type="button" class="tool" data-color="understand" aria-pressed="true">
+      <span class="dot understand"></span> Understand
+    </button>
+    <button type="button" class="tool" data-color="lookup" aria-pressed="false">
+      <span class="dot lookup"></span> Look up
+    </button>
+    <button type="button" class="tool" data-color="deep" aria-pressed="false">
+      <span class="dot deep"></span> Deep dive
+    </button>
+    <button type="button" class="copy" id="copy">Copy for chat</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f4efe4;
+  --ink: #1d1914;
+  --muted: #5c5348;
+  --line: #d9d0c2;
+  --understand: #b7e2b4;
+  --lookup: #ffe08a;
+  --deep: #f7b7d0;
+  --shadow: 0 8px 24px rgba(60, 42, 20, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "OpenDyslexic", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.key {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 0.5rem;
+}
+
+.key-title {
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.swatches {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+.swatches li,
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  flex: none;
+}
+
+.dot.understand { background: var(--understand); }
+.dot.lookup { background: var(--lookup); }
+.dot.deep { background: var(--deep); }
+
+.key-note {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 7.5rem;
+}
+
+.date {
+  margin: 0.2rem 0 1rem;
+  color: var(--muted);
+}
+
+.status {
+  margin: 0 0 1rem;
+  color: #8a3b12;
+}
+
+.passage + .passage { margin-top: 2rem; }
+
+.passage h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.45rem;
+  line-height: 1.4;
+}
+
+.verse {
+  display: flex;
+  gap: 0.7rem;
+  width: 100%;
+  margin: 0 0 0.45rem;
+  padding: 0.55rem 0.7rem;
+  border: 0;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.verse:focus-visible {
+  outline: 3px solid #2f6f4e;
+  outline-offset: 2px;
+}
+
+.verse .num {
+  min-width: 1.6rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.verse.understand { background: var(--understand); }
+.verse.lookup { background: var(--lookup); }
+.verse.deep { background: var(--deep); }
+
+.toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  padding: 0.7rem 0.8rem calc(0.7rem + env(safe-area-inset-bottom));
+  background: rgba(244, 239, 228, 0.96);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.tool,
+.copy {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.tool[aria-pressed="true"] {
+  border-color: #1d1914;
+  box-shadow: inset 0 0 0 1px #1d1914;
+}
+
+.copy {
+  background: #1d1914;
+  color: #f4efe4;
+  border-color: #1d1914;
+}
+
+@media (min-width: 800px) {
+  body { font-size: 1.22rem; }
+  .key, main { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media print {
+  .toolbar { display: none; }
+  main { padding-bottom: 0; }
+  .verse { break-inside: avoid; }
+}
